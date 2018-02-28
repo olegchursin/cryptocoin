@@ -3,11 +3,8 @@ import Coin from './Coin'
 
 const CoinsList = (props) => {
   let allCoins = props.coins
-
   let filteredCoins = allCoins.filter(c => {
-
     return c.name.toLowerCase().includes(props.coinFilter.toLowerCase())
-
   })
 
   if(props.coinsSort === 'Alphabeticaly'){

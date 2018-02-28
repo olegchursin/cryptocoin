@@ -50,7 +50,9 @@ class ContentContainer extends React.Component {
           sortAlphabeticaly={this.sortAlphabeticaly}
           sortByDefault={this.sortByDefault}
           sortByWorth={this.sortByWorth} />
-        <CoinsList {...this.state} coins={this.state.coins} />
+        <CoinsList
+          {...this.state}
+          coins={this.state.coins} />
       </div>
     )
   }
