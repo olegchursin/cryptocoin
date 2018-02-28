@@ -7,16 +7,28 @@ const CoinsList = (props) => {
     return c.name.toLowerCase().includes(props.coinFilter.toLowerCase())
   })
 
-  if(props.coinsSort === 'Alphabeticaly'){
+  if(props.coinsSort === 'Az'){
     filteredCoins.sort((a,b)=>{
       return a.name.localeCompare(b.name)
     })
   }
 
-  if(props.coinsSort === 'Worth'){
+  if(props.coinsSort === 'Za'){
+    filteredCoins.sort((a,b)=>{
+      return b.name.localeCompare(a.name)
+    })
+  }
+
+  if(props.coinsSort === 'PriceHigh'){
     filteredCoins.sort((a,b)=>{
       return a.price_usd - b.price_usd
     }).reverse()
+  }
+
+  if(props.coinsSort === 'PriceLow'){
+    filteredCoins.sort((a,b)=>{
+      return a.price_usd - b.price_usd
+    })
   }
 
   return (

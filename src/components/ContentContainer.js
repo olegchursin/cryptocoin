@@ -9,14 +9,24 @@ class ContentContainer extends React.Component {
     coinsSort: ''
   }
 
-  sortAlphabeticaly = () => {
+  sortAz = () => {
     this.setState({
-      coinsSort: 'Alphabeticaly'
+      coinsSort: 'Az'
     })
   }
-  sortByWorth = () => {
+  sortZa = () => {
     this.setState({
-      coinsSort: 'Worth'
+      coinsSort: 'Za'
+    })
+  }
+  sortPriceHigh = () => {
+    this.setState({
+      coinsSort: 'PriceHigh'
+    })
+  }
+  sortPriceLow = () => {
+    this.setState({
+      coinsSort: 'PriceLow'
     })
   }
   sortByDefault = () => {
@@ -47,9 +57,12 @@ class ContentContainer extends React.Component {
       <div>
         <CoinsFilter
           handleFilter={this.handleFilter}
-          sortAlphabeticaly={this.sortAlphabeticaly}
+          sortAz={this.sortAz}
+          sortZa={this.sortZa}
+          sortPriceHigh={this.sortPriceHigh}
+          sortPriceLow={this.sortPriceLow}
           sortByDefault={this.sortByDefault}
-          sortByWorth={this.sortByWorth} />
+           />
         <CoinsList
           {...this.state}
           coins={this.state.coins} />
