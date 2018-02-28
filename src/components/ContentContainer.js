@@ -1,6 +1,7 @@
 import React from 'react';
 import CoinsFilter from './CoinsFilter';
 import CoinsList from './CoinsList';
+import NavBar from './NavBar'
 
 class ContentContainer extends React.Component {
   state = {
@@ -55,17 +56,23 @@ class ContentContainer extends React.Component {
   render(){
     return (
       <div>
-        <CoinsFilter
-          handleFilter={this.handleFilter}
-          sortAz={this.sortAz}
-          sortZa={this.sortZa}
-          sortPriceHigh={this.sortPriceHigh}
-          sortPriceLow={this.sortPriceLow}
-          sortByDefault={this.sortByDefault}
-           />
-        <CoinsList
-          {...this.state}
-          coins={this.state.coins} />
+        <div>
+          <NavBar />
+        </div>
+        <div className="ui main container">
+          <h1 className="ui header header-top">Cryptocurrency lister</h1>
+          <CoinsFilter
+            handleFilter={this.handleFilter}
+            sortAz={this.sortAz}
+            sortZa={this.sortZa}
+            sortPriceHigh={this.sortPriceHigh}
+            sortPriceLow={this.sortPriceLow}
+            sortByDefault={this.sortByDefault}
+             />
+          <CoinsList
+            {...this.state}
+            coins={this.state.coins} />
+        </div>
       </div>
     )
   }

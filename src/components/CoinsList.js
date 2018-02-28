@@ -32,9 +32,13 @@ const CoinsList = (props) => {
   }
 
   return (
-    filteredCoins.map(c => {
-      return <Coin key={c.id} coin={c} />
-    })
+    <div className="ui grid container">
+      {
+        filteredCoins.map(c => {
+          return <Coin key={c.id} coin={c} />
+        })
+      }
+    </div>
   )
 }
 
