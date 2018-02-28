@@ -9,6 +9,22 @@ class ContentContainer extends React.Component {
     coinsSort: ''
   }
 
+  sortAlphabeticaly = () => {
+    this.setState({
+      coinsSort: 'Alphabeticaly'
+    })
+  }
+  sortByWorth = () => {
+    this.setState({
+      coinsSort: 'Worth'
+    })
+  }
+  sortByDefault = () => {
+    this.setState({
+      coinsSort: ''
+    })
+  }
+
   componentDidMount = () => {
     fetch('https://api.coinmarketcap.com/v1/ticker/')
     .then(res => res.json())
@@ -25,18 +41,15 @@ class ContentContainer extends React.Component {
     })
   }
 
-  handleSort = (e) => {
-    this.setState({
-      coinSort: e.target.value
-    })
-  }
 
   render(){
     return (
       <div>
         <CoinsFilter
           handleFilter={this.handleFilter}
-          handleSort={this.handleSort} />
+          sortAlphabeticaly={this.sortAlphabeticaly}
+          sortByDefault={this.sortByDefault}
+          sortByWorth={this.sortByWorth} />
         <CoinsList {...this.state} coins={this.state.coins} />
       </div>
     )

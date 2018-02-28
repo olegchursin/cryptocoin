@@ -5,14 +5,22 @@ const CoinsList = (props) => {
   let allCoins = props.coins
 
   let filteredCoins = allCoins.filter(c => {
-    console.log("name",c.name)
-    console.log("props",props.coinFilter)
 
     return c.name.toLowerCase().includes(props.coinFilter.toLowerCase())
 
   })
 
+  if(props.coinsSort === 'Alphabeticaly'){
+    filteredCoins.sort((a,b)=>{
+      return a.name.localeCompare(b.name)
+    })
+  }
 
+  if(props.coinsSort === 'Worth'){
+    filteredCoins.sort((a,b)=>{
+      return a.price_usd - b.price_usd
+    }).reverse()
+  }
 
   return (
     filteredCoins.map(c => {
