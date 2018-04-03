@@ -2,12 +2,24 @@ import React from 'react';
 import CoinsFilter from './CoinsFilter';
 import CoinsList from './CoinsList';
 import NavBar from './NavBar'
+import FavoriteContainer from './FavoriteContainer'
 
 class ContentContainer extends React.Component {
   state = {
     coins: [],
+    favoriteCoins: [],
     coinFilter: '',
     coinsSort: ''
+  }
+
+  addToFavorites = (coin) => {
+    this.setState({
+      favoriteCoins: [...this.state.favoriteCoins, coin]
+    })
+  }
+
+  removeFromFavorites = (coin) => {
+    console.log("deleting")
   }
 
   sortAz = () => {
@@ -52,8 +64,8 @@ class ContentContainer extends React.Component {
     })
   }
 
-
   render(){
+    console.log(this.state.favoriteCoins)
     return (
       <div>
         <div>
@@ -69,9 +81,14 @@ class ContentContainer extends React.Component {
             sortPriceLow={this.sortPriceLow}
             sortByDefault={this.sortByDefault}
              />
+          <FavoriteContainer
+            favoriteCoins={this.state.favoriteCoins}
+            removeFromFavorites={this.removeFromFavorites} />
           <CoinsList
             {...this.state}
-            coins={this.state.coins} />
+            coins={this.state.coins}
+            addToFavorites={this.addToFavorites}
+            />
         </div>
       </div>
     )

@@ -7,12 +7,11 @@ export default class NavBar extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state
 
     return (
       <Menu inverted>
         <Menu.Item>
-          <img src='../img/logo-wh.png' />
+          <img src='../img/logo-wh.png' alt="img"/>
           Cryptocurrency Lister
         </Menu.Item>
       </Menu>

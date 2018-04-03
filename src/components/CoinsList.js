@@ -35,7 +35,7 @@ const CoinsList = (props) => {
     <div className="ui grid container">
       {
         filteredCoins.map(c => {
-          return <Coin key={c.id} coin={c} />
+          return <Coin key={c.id} coin={c} executeAction={props.addToFavorites}/>
         })
       }
     </div>
